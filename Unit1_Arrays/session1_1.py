@@ -54,12 +54,39 @@ def final_value_after_operations(operations):
 operations = ["trouncy", "flouncy", "flouncy"]
 actual = final_value_after_operations(operations)
 expected = 2
-
 print(f"Expect value: ", expected, "|| Actual: ", actual)
 
 # Test Case #2
 operations = ["bouncy", "bouncy", "flouncy"]
 actual = final_value_after_operations(operations)
 expected = 4
-
 print(f"Expect value: ", expected, "|| Actual: ", actual)
+
+# Problem 3: T-I-Double Guh-Er II
+# T-I-Double Guh-Er: That spells Tigger! 
+# Write a function tiggerfy() that accepts a string word 
+# and returns a new string that removes any substrings t, i, gg, and er from word. 
+# The function should be case insensitive.
+
+def tiggerfy(word):
+	removeLst = ["t", "i", "gg", "er"]
+	
+	
+	
+
+# Test Cases:
+
+word = "Trigger"
+actual = tiggerfy(word)
+expected = "r"
+print(f"Expect value: ", expected, "|| Actual: ", actual)
+
+word = "eggplant"
+tiggerfy(word)
+
+word = "Choir"
+tiggerfy(word)
+
+
+"eplan"
+"Choir"

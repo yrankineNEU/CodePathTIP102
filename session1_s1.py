@@ -184,10 +184,83 @@ can_pair(item_quantities)
 # accepts a positive integer quantity as a parameter and returns a list of all divisors of quantity.
 
 def split_haycorns(quantity):
-	pass
+    # check if positive integer, return empty list if not
+    if quantity < 0:
+        return []
+
+    # initialize the list of divisors
+    split = []
+    
+    # Loop through each decrement from the quantity
+    for i in range(1, quantity+1):
+        
+        # if quanitty / current i is a whole number, add i to the split arr
+        if (quantity % i) == 0:
+            split.append(i)
+    
+    # return list
+    return split
+
+#test cases
+print("------- Question 10: ------")
 
 quantity = 6
-split_haycorns(quantity)
+print(split_haycorns(quantity))
 
 quantity = 1
-split_haycorns(quantity)
+print(split_haycorns(quantity))
+
+# Problem 11: T-I-Double Guh-ER
+# Signs in the Hundred Acre Wood have been losing letters as Tigger bounces around stealing any 
+# letters he needs to spell out his name. Write a function tiggerfy() 
+# that accepts a string s, and returns a new string with the letters t, i, g, e, and r from it.
+
+# STRINGS ARE IMMUTABLE
+
+def tiggerfy(s):
+    # Edge case: handle empty list
+    if s == None:
+        return ""
+    
+    # Initialize list with tiger string
+    tiger = ['t', 'i', 'g', 'e', 'r']
+    
+    # Loop through s word string 
+    for i in range(len(s)):
+        # compare to each letter in tiger 
+        for each in tiger: 
+            if each == s[i]:
+                print("letter found ", each, s)
+                s.replace(s[1], "x")
+                
+    return s
+ 
+ 
+
+# Example Usage
+print("--- Problem 11 --- ")
+s = "suspicerous"
+print(tiggerfy(s))
+
+s = "Trigger"
+print(tiggerfy(s))
+
+s = "Hunny"
+print(tiggerfy(s))
+
+# Problem 12: Thistle Hunt
+# Pooh, Piglet, and Roo are looking for thistles to gift their friend Eeyore. 
+# Write a function locate_thistles() that takes in a list of strings items 
+# and returns a list of the indices of any elements with value "thistle". 
+# The indices in the resulting list should be ordered from least to greatest.
+
+def locate_thistles(items):
+	pass
+
+# Example Usage
+print("---- Problem 12")
+items = ["thistle", "stick", "carrot", "thistle", "eeyore's tail"]
+locate_thistles(items)
+
+items = ["book", "bouncy ball", "leaf", "red balloon"]
+locate_thistles(items)

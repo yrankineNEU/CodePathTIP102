@@ -225,15 +225,19 @@ def tiggerfy(s):
     # Initialize list with tiger string
     tiger = ['t', 'i', 'g', 'e', 'r']
     
+    new_s = []
+    
     # Loop through s word string 
     for i in range(len(s)):
         # compare to each letter in tiger 
         for each in tiger: 
-            if each == s[i]:
-                print("letter found ", each, s)
-                s.replace(s[1], "x")
-                
-    return s
+            if each != s[i]:
+                new_s.append(s[i])
+    
+    # convert array into string
+    new_string = "".join(new_s)
+    
+    return new_string
  
  
 

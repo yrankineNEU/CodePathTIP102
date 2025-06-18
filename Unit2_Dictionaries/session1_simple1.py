@@ -351,13 +351,135 @@ def find_stage_arrangement_difference(s, t):
     :type t: List[str]
     :rtype: int
     """
+    # initialize dictionaries 
+    dict_s = {}
+    dict_t = {}
     
+    sum = 0
     
-
+    # create dictionary for each person and their index
+    for index in range(len(s)):
+         dict_s.update( {s[index] : index} )
+    
+    for index2 in range(len(t)):
+         dict_t.update( {t[index2] : index2} )
+    
+    # compare indexes in both dictionary
+    for s_name, s_spot in dict_s.items():
+            t_spot = dict_t.get(s_name)
+            
+            # get abs difference
+            sum += abs(s_spot - t_spot)
+    
+    # return sum
+    return sum
+            
 s1 = ["Alice", "Bob", "Charlie"]
 t1 = ["Bob", "Alice", "Charlie"]
+print(find_stage_arrangement_difference(s1, t1))
+
 s2 = ["Alice", "Bob", "Charlie", "David", "Eve"]
 t2 = ["Eve", "David", "Bob", "Alice", "Charlie"]
-
-print(find_stage_arrangement_difference(s1, t1))
 print(find_stage_arrangement_difference(s2, t2))
+
+'''
+Problem 10: VIP Passes and Guests
+You're given strings vip_passes representing the types of guests that have VIP passes, 
+and guests representing the guests you have at the music festival. 
+
+Each character in guests is a type of guest you have. 
+You want to know how many of the guests you have are also VIP pass holders.
+
+Letters are case sensitive, so "a" is considered a different type of guest from "A".
+
+Example Output:
+3
+0
+'''
+def num_VIP_guests(vip_passes, guests):
+    # 1. Create an empty set called vip_set.
+    vip_set = set()
+    
+    # 2. For each character in vip_passes, add it to vip_set.
+    for char_vip in vip_passes:
+        vip_set.add(char_vip)
+    
+    print(vip_set)
+    # 3. Initialize a counter variable to 0.
+    counter = 0
+    
+    # 4. For each character in guests:
+    for each in guests:
+        #    * If the character is in vip_set, increment the count by 1.
+        if each in vip_set:
+            counter += 1
+    return counter
+
+vip_passes1 = "aA"
+guests1 = "aAAbbbb"
+
+vip_passes2 = "z"
+guests2 = "ZZ"
+
+print(num_VIP_guests(vip_passes1, guests1))
+print(num_VIP_guests(vip_passes2, guests2))
+
+'''
+Problem 11: Performer Schedule Pattern
+Given a string pattern and a string schedule, 
+return True if schedule follows the same pattern. 
+Return False otherwise.
+
+Here, "follow" means a full match, such that there is a one-to-one correspondence between 
+a letter in pattern and a non-empty word in schedule.
+
+You are provided with a partially implemented and buggy version of the solution. 
+Identify and fix the bugs in the code. 
+Then, perform a thorough code review and suggest improvements.
+
+
+Example Output:
+True
+False
+False
+'''
+def schedule_pattern(pattern, schedule):
+    
+    # split each music genre in schedule into a list (genres)
+    genres = schedule.split()
+    
+    # if the length of genres list matches the leng of the pattern string, return true
+    if len(genres) == len(pattern):
+        return True
+
+    # initalize dictionaries 
+    char_to_genre = {}
+    genre_to_char = {}
+
+    for char, genre in zip(pattern, genres):
+        if char in char_to_genre:
+            if char_to_genre[char] == genre:
+                return True
+        else:
+            char_to_genre[char] = genre
+
+        if genre in genre_to_char:
+            if genre_to_char[genre] == char:
+                return True
+        else:
+            genre_to_char[genre] = char
+
+    return False
+
+pattern1 = "abba"
+schedule1 = "rock jazz jazz rock"
+
+pattern2 = "abba"
+schedule2 = "rock jazz jazz blues"
+
+pattern3 = "aaaa"
+schedule3 = "rock jazz jazz rock"
+
+print(schedule_pattern(pattern1, schedule1))
+print(schedule_pattern(pattern2, schedule2))
+print(schedule_pattern(pattern3, schedule3))

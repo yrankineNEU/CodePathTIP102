@@ -18,12 +18,12 @@ The course covers:
 - Dynamic Programming
 
 ## 📁 Folder Structure
-| Week | Topic                  | Status     |
-|------|------------------------|------------|
-| 1    | Arrays & Big-O         | ✅ Complete |
-| 2    | Hash Maps & Two Pointers | ⏳ In Progress |
-| 3    | Stacks, Queues, Recursion | 🔜 Upcoming |
-| 4    | Linked Lists           | 🔜 Upcoming |
+| Week | Topic                       | Status         |
+|------|-----------------------------|----------------|
+| 1    | Arrays & Big-O              | ✅ Complete    |
+| 2    | Dictionary, Sets            | ✅ Complete    |
+| 3    | Stacks, Queues, Two-Pointer | ⏳ In Progress |
+| 4    | Review                      | 🔜 Upcoming    |
 
 ## 💡 Goals
 

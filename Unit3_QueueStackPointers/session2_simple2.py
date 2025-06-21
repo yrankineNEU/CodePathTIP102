@@ -162,3 +162,43 @@ def merge_schedules(schedule1, schedule2):
 print(merge_schedules("abc", "pqr")) 
 print(merge_schedules("ab", "pqrs")) 
 print(merge_schedules("abcd", "pq")) 
+
+'''
+Problem 6: Count Balanced Terrain Subsections
+During your global expedition, you are analyzing a binary terrain string, terrain, 
+where 0 represents a valley and 1 represents a hill.
+
+You need to count the number of non-empty balanced subsections in the terrain. 
+A balanced subsection is defined as a contiguous segment of the terrain where an 
+equal number of valleys (0s) and hills (1s) appear, and all the 0s and 1s are grouped consecutively.
+
+Your task is to return the total number of these balanced subsections. 
+Note that subsections that occur multiple times should be counted each time they appear.
+'''
+def count_balanced_terrain_subsections(terrain):
+  counter = 0
+  
+  # use a stack to pop from the end
+  lst = []
+  for each in terrain:
+    lst.append(each)
+    
+  subsection = []
+
+  while len(subsection) < 3 and len(lst) > 0:
+      # if empty, add last two to subsection
+      if len(subsection) < 2:
+        subsection.append(lst.pop())
+      
+      elif len(subsection) == 2:
+        if subsection[0] == subsection[1]:
+          counter += 1
+          subsection.clear()
+        else: 
+          subsection.remove(subsection[0])
+    
+  return counter
+    
+
+print(count_balanced_terrain_subsections("00110011")) 
+print(count_balanced_terrain_subsections("10101"))
